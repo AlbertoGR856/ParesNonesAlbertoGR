@@ -48,7 +48,7 @@ public class ParteA {
 
             } while (decisionJugador2 < 0 || decisionJugador2 > 1 || decisionJugador2 == decisionJugador1);
 
-            JOptionPane.showMessageDialog(null, "Seleccione los dedos para ambos jugadores (Minimo 1 y maximo 10)");
+            JOptionPane.showMessageDialog(null, "Seleccione los dedos para ambos jugadores (Minimo 0 y maximo 10)");
 
             do {
 
@@ -58,7 +58,7 @@ public class ParteA {
 
                 dedosJugador1 = Integer.parseInt(texto3);
 
-            } while (dedosJugador1 < 1 || dedosJugador1 > 10);
+            } while (dedosJugador1 < 0 || dedosJugador1 > 10);
 
             do {
 
@@ -68,7 +68,7 @@ public class ParteA {
 
                 dedosJugador2 = Integer.parseInt(texto4);
 
-            } while (dedosJugador2 < 1 || dedosJugador2 > 10);
+            } while (dedosJugador2 < 0 || dedosJugador2 > 10);
 
             sumaDedosJugadores = dedosJugador1 + dedosJugador2;
 
@@ -76,6 +76,7 @@ public class ParteA {
 
             JOptionPane.showMessageDialog(null, "El ganador es....");
 
+            
             if (sumaDedosJugadores % 2 == 0) {
 
                 JOptionPane.showMessageDialog(null, "El numero es par");
@@ -84,7 +85,7 @@ public class ParteA {
 
                     JOptionPane.showMessageDialog(null, "El Jugador1 gana");
 
-                } else if (decisionJugador2 == 1) {
+                } else {
 
                     JOptionPane.showMessageDialog(null, "El Jugador2 gana");
 
@@ -98,7 +99,7 @@ public class ParteA {
 
                     JOptionPane.showMessageDialog(null, "El Jugador1 gana");
 
-                } else if (decisionJugador2 == 0) {
+                } else {
 
                     JOptionPane.showMessageDialog(null, "El Jugador2 gana");
 
