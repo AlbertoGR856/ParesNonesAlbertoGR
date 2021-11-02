@@ -10,6 +10,10 @@ import javax.swing.JOptionPane;
  *
  * @author albertogarzon
  */
+/*
+URL del repositorio remoto
+https://github.com/AlbertoGR856/ParesNonesAlbertoGR.git
+*/
 public class ParteA {
 
     public static void main(String[] args) {
