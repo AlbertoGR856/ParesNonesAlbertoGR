@@ -21,7 +21,6 @@ public class ParteA {
         int decisionJugador2;
         int dedosJugador1;
         int dedosJugador2;
-        
 
         JOptionPane.showMessageDialog(null, "BIENVENIDO A PARES Y NONES");
         JOptionPane.showMessageDialog(null, "Seleccione Pares o Nones (1- Pares, 0- Nones)");
@@ -45,9 +44,31 @@ public class ParteA {
             decisionJugador2 = Integer.parseInt(texto2);
 
         } while (decisionJugador2 < 0 || decisionJugador2 > 1);
-        
-        
+
         JOptionPane.showMessageDialog(null, "Seleccione los dedos para ambos jugadores (Minimo 1 y maximo 10)");
+
+        do {
+
+            String texto3;
+
+            texto3 = JOptionPane.showInputDialog("Introduzca los dedos del jugador1:");
+
+            dedosJugador1 = Integer.parseInt(texto3);
+
+        } while (dedosJugador1 < 1 || dedosJugador1 > 10);
+
+        do {
+
+            String texto4;
+
+            texto4 = JOptionPane.showInputDialog("Introduzca los dedos del jugador1:");
+
+            dedosJugador2 = Integer.parseInt(texto4);
+
+        } while (dedosJugador2 < 1 || dedosJugador2 > 10);
+        
+        
+        
         
 
     }
