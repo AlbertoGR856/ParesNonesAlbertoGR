@@ -34,7 +34,7 @@ public class ParteB {
 
             do {
 
-                System.out.println("Introduzca la decision del jugador1:");
+                System.out.println("Introduzca la decision del jugador1: ");
 
                 decisionJugador1 = teclado.nextInt();
 
@@ -44,13 +44,13 @@ public class ParteB {
 
             do {
 
-                decisionJugador2 = aleatorio.nextInt(1) + 1;
+                decisionJugador2 = aleatorio.nextInt(1 - 0 + 1) + 0;
 
             } while (decisionJugador2 < 0 || decisionJugador2 > 1 || decisionJugador2 == decisionJugador1);
 
             do {
 
-                System.out.println("Introduzca los dedos del jugador1:");
+                System.out.println("Introduzca los dedos del jugador1: ");
 
                 dedosJugador1 = teclado.nextInt();
 
@@ -67,19 +67,19 @@ public class ParteB {
 
             System.out.println("La suma de los dedos de ambos jugadores es de: " + sumaDedosJugadores);
 
-            System.out.println("El ganador es....");
-
             if (sumaDedosJugadores % 2 == 0) {
 
                 System.out.println("El numero es par");
 
+                System.out.println("El ganador es....");
+
                 if (decisionJugador1 == 1) {
 
-                    System.out.println("El Jugador1 gana");
+                    System.out.println("Jugador1");
 
                 } else {
 
-                    System.out.println("El Jugador2(maquina) gana");
+                    System.out.println("Jugador2(maquina)");
 
                 }
 
@@ -87,20 +87,22 @@ public class ParteB {
 
                 System.out.println("El numero es nones");
 
+                System.out.println("El ganador es....");
+
                 if (decisionJugador1 == 0) {
 
-                    System.out.println("El Jugador1 gana");
+                    System.out.println("Jugador1");
 
                 } else {
 
-                    System.out.println("El Jugador2(maquina) gana");
+                    System.out.println("Jugador2(maquina)");
 
                 }
 
             }
 
             //Al finalizar la estructura switch se pide por consola si el usuario quiere realizar otra iteraccion
-            System.out.println("¿Quieres que te volvamos a timar?");
+            System.out.println("¿Quieres volver a jugar?");
             System.out.println("S o cualquier tecla - Si");
             System.out.println("N - No");
 
