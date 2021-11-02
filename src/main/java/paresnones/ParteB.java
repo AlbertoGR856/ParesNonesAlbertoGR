@@ -5,7 +5,7 @@
 package paresnones;
 
 import java.util.Random;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 /**
  *
@@ -15,6 +15,7 @@ public class ParteB {
 
     public static void main(String[] args) {
 
+        Scanner teclado = new Scanner(System.in);
         Random aleatorio = new Random();
 
         int decisionJugador1;
@@ -24,24 +25,23 @@ public class ParteB {
 
         int sumaDedosJugadores;
 
-        boolean repetir = true;
+        String respuesta;
 
         do {
 
-            JOptionPane.showMessageDialog(null, "BIENVENIDO A PARES Y NONES");
-            JOptionPane.showMessageDialog(null, "Seleccione Pares o Nones (1- Pares, 0- Nones)");
+            System.out.println("BIENVENIDO A PARES Y NONES");
+            System.out.println("Seleccione Pares o Nones (1- Pares, 0- Nones)");
 
             do {
 
-                String texto;
+                System.out.println("Introduzca la decision del jugador1:");
 
-                texto = JOptionPane.showInputDialog("Introduzca la decision del jugador1:");
-
-                decisionJugador1 = Integer.parseInt(texto);
+                decisionJugador1 = teclado.nextInt();
 
             } while (decisionJugador1 < 0 || decisionJugador1 > 1);
 
-            JOptionPane.showMessageDialog(null, "Se generara la decision del jugador2(maquina)");
+            System.out.println("Se generara la decision del jugador2(maquina)");
+
             do {
 
                 decisionJugador2 = aleatorio.nextInt(1) + 1;
@@ -50,15 +50,13 @@ public class ParteB {
 
             do {
 
-                String texto3;
+                System.out.println("Introduzca los dedos del jugador1:");
 
-                texto3 = JOptionPane.showInputDialog("Introduzca los dedos del jugador1:");
-
-                dedosJugador1 = Integer.parseInt(texto3);
+                dedosJugador1 = teclado.nextInt();
 
             } while (dedosJugador1 < 0 || dedosJugador1 > 10);
 
-            JOptionPane.showMessageDialog(null, "Se generara los dedos del jugador2(maquina)");
+            System.out.println("Se generara los dedos del jugador2(maquina)");
             do {
 
                 dedosJugador2 = aleatorio.nextInt(10) + 1;
@@ -67,60 +65,54 @@ public class ParteB {
 
             sumaDedosJugadores = dedosJugador1 + dedosJugador2;
 
-            JOptionPane.showMessageDialog(null, "La suma de los dedos de ambos jugadores es de: " + sumaDedosJugadores);
+            System.out.println("La suma de los dedos de ambos jugadores es de: " + sumaDedosJugadores);
 
-            JOptionPane.showMessageDialog(null, "El ganador es....");
+            System.out.println("El ganador es....");
 
             if (sumaDedosJugadores % 2 == 0) {
 
-                JOptionPane.showMessageDialog(null, "El numero es par");
+                System.out.println("El numero es par");
 
                 if (decisionJugador1 == 1) {
 
-                    JOptionPane.showMessageDialog(null, "El Jugador1 gana");
+                    System.out.println("El Jugador1 gana");
 
                 } else {
 
-                    JOptionPane.showMessageDialog(null, "El Jugador2(maquina) gana");
+                    System.out.println("El Jugador2(maquina) gana");
 
                 }
 
             } else {
 
-                JOptionPane.showMessageDialog(null, "El numero es nones");
+                System.out.println("El numero es nones");
 
                 if (decisionJugador1 == 0) {
 
-                    JOptionPane.showMessageDialog(null, "El Jugador1 gana");
+                    System.out.println("El Jugador1 gana");
 
                 } else {
 
-                    JOptionPane.showMessageDialog(null, "El Jugador2(maquina) gana");
+                    System.out.println("El Jugador2(maquina) gana");
 
                 }
 
             }
 
-            //PREGUNTAR PARA SALIR
-            //Se pregunta al usuario si quiere salir del programa, con la ventana JOptionPane.YES_NO_OPTION
-            int op = JOptionPane.showConfirmDialog(null,
-                    "¿Deseas salir?", "Salida del programa", JOptionPane.YES_NO_OPTION);
+            //Al finalizar la estructura switch se pide por consola si el usuario quiere realizar otra iteraccion
+            System.out.println("¿Quieres que te volvamos a timar?");
+            System.out.println("S o cualquier tecla - Si");
+            System.out.println("N - No");
 
-            //Estructura if-else donde el usuario decidira si salir o no del programa
-            if (op == JOptionPane.YES_OPTION) {
-                // Quiere salir
-                JOptionPane.showMessageDialog(
-                        null, "Saliendo del programa...."); // Depuración
-                repetir = false; // Condición de parada del programa
+            //Al introducir un numero por teclado, se necesitara limpiar el buffer del teclado si queremos introducir un caracter o String
+            teclado.nextLine();
 
-            } else {
-
-                JOptionPane.showMessageDialog(
-                        null, "Vuelva a jugar a Pares y Nones:");
-            }
+            respuesta = teclado.nextLine();
 
             //Si se cumple la condicion del while, el bucle se repetira, iniciando una nueva ejecución
-        } while (repetir);
+        } while (!respuesta.equalsIgnoreCase("N"));
+
+        System.out.println("Finalizando programa...");
 
     }
 
