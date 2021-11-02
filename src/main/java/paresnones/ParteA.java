@@ -22,6 +22,8 @@ public class ParteA {
         int dedosJugador1;
         int dedosJugador2;
 
+        int sumaDedosJugadores;
+
         JOptionPane.showMessageDialog(null, "BIENVENIDO A PARES Y NONES");
         JOptionPane.showMessageDialog(null, "Seleccione Pares o Nones (1- Pares, 0- Nones)");
 
@@ -66,10 +68,44 @@ public class ParteA {
             dedosJugador2 = Integer.parseInt(texto4);
 
         } while (dedosJugador2 < 1 || dedosJugador2 > 10);
+
+        sumaDedosJugadores = dedosJugador1 + dedosJugador2;
+
+        JOptionPane.showMessageDialog(null, "La suma de los dedos de ambos jugadores es de: " + sumaDedosJugadores);
+
+        JOptionPane.showMessageDialog(null, "El ganador es....");
         
         
-        
-        
+
+        if (sumaDedosJugadores % 2 == 0) {
+
+            JOptionPane.showMessageDialog(null, "El numero es par");
+
+            if (decisionJugador1 == 1) {
+
+                JOptionPane.showMessageDialog(null, "El Jugador1 gana");
+
+            } else if (decisionJugador2 == 1) {
+
+                JOptionPane.showMessageDialog(null, "El Jugador2 gana");
+
+            }
+
+        } else {
+
+             JOptionPane.showMessageDialog(null, "El numero es nones");
+            
+            if (decisionJugador1 == 0) {
+
+                JOptionPane.showMessageDialog(null, "El Jugador1 gana");
+
+            } else if (decisionJugador2 == 0) {
+
+                JOptionPane.showMessageDialog(null, "El Jugador2 gana");
+
+            }
+
+        }
 
     }
 
