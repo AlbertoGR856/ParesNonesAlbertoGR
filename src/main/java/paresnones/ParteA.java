@@ -4,7 +4,6 @@
  */
 package paresnones;
 
-
 import javax.swing.JOptionPane;
 
 /**
@@ -15,19 +14,27 @@ public class ParteA {
 
     public static void main(String[] args) {
 
+        //Variables introducidas por JOptionPane
         int decisionJugador1;
         int decisionJugador2;
         int dedosJugador1;
         int dedosJugador2;
+
+        //Variable booleana utilizada para repetir la ejecución del programa
         boolean repetir = true;
 
+        //Variable que almacena la suma de los dedos de los jugadores
         int sumaDedosJugadores;
 
+        //Bucle do-while para repetir la ejecucion del programa segun la respuesta dada por el usuario
         do {
 
             JOptionPane.showMessageDialog(null, "BIENVENIDO A PARES Y NONES");
+
+            //SELECCIÓN PARES O NONES
             JOptionPane.showMessageDialog(null, "Seleccione Pares o Nones (1- Pares, 0- Nones)");
 
+            //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
 
                 String texto;
@@ -38,6 +45,7 @@ public class ParteA {
 
             } while (decisionJugador1 < 0 || decisionJugador1 > 1);
 
+            //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
 
                 String texto2;
@@ -46,10 +54,14 @@ public class ParteA {
 
                 decisionJugador2 = Integer.parseInt(texto2);
 
+                //Se incluye en la condicion del while que la respues del jugador2 sea igual a la del jugador1. Ya que ambos no pueden elegir lo mismo, por lo tanto
+                //si es falso finalizara el bucle
             } while (decisionJugador2 < 0 || decisionJugador2 > 1 || decisionJugador2 == decisionJugador1);
 
+            //SELECCIÓN DEDOS DE LOS JUGADORES
             JOptionPane.showMessageDialog(null, "Seleccione los dedos para ambos jugadores (Minimo 0 y maximo 10)");
 
+            //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
 
                 String texto3;
@@ -70,24 +82,27 @@ public class ParteA {
 
             } while (dedosJugador2 < 0 || dedosJugador2 > 10);
 
+            //Se suman los dedos de los jugadores
             sumaDedosJugadores = dedosJugador1 + dedosJugador2;
 
+            //RESULTADO
             JOptionPane.showMessageDialog(null, "La suma de los dedos de ambos jugadores es de: " + sumaDedosJugadores);
 
-            JOptionPane.showMessageDialog(null, "El ganador es....");
-
-            
+            //Estructura if-else para saber si el numero es par o impar
             if (sumaDedosJugadores % 2 == 0) {
 
                 JOptionPane.showMessageDialog(null, "El numero es par");
 
+                JOptionPane.showMessageDialog(null, "El ganador es....");
+
+                //Estrcutura if-else para saber quien ha ganado sabiendo que ha elegido (1-Par) 
                 if (decisionJugador1 == 1) {
 
-                    JOptionPane.showMessageDialog(null, "El Jugador1 gana");
+                    JOptionPane.showMessageDialog(null, "Jugador1");
 
                 } else {
 
-                    JOptionPane.showMessageDialog(null, "El Jugador2 gana");
+                    JOptionPane.showMessageDialog(null, "Jugador2");
 
                 }
 
@@ -95,13 +110,16 @@ public class ParteA {
 
                 JOptionPane.showMessageDialog(null, "El numero es nones");
 
+                JOptionPane.showMessageDialog(null, "El ganador es....");
+
+                //Estrcutura if-else para saber quien ha ganado sabiendo que ha elegido (0-Nones) 
                 if (decisionJugador1 == 0) {
 
-                    JOptionPane.showMessageDialog(null, "El Jugador1 gana");
+                    JOptionPane.showMessageDialog(null, "Jugador1");
 
                 } else {
 
-                    JOptionPane.showMessageDialog(null, "El Jugador2 gana");
+                    JOptionPane.showMessageDialog(null, "Jugador2");
 
                 }
 
@@ -114,10 +132,10 @@ public class ParteA {
 
             //Estructura if-else donde el usuario decidira si salir o no del programa
             if (op == JOptionPane.YES_OPTION) {
-                // Quiere salir
                 JOptionPane.showMessageDialog(
-                        null, "Saliendo del programa...."); // Depuración
-                repetir = false; // Condición de parada del programa
+                        null, "Saliendo del programa....");
+                // Condición de parada del programa
+                repetir = false;
 
             } else {
 
@@ -125,7 +143,7 @@ public class ParteA {
                         null, "Vuelva a jugar a Pares y Nones:");
             }
 
-            //Si se cumple la condicion del while, el bucle se repetira, iniciando una nueva ejecución
+            //Si se cumple la condicion del while el bucle se repetira, iniciando una nueva ejecución
         } while (repetir);
 
     }
