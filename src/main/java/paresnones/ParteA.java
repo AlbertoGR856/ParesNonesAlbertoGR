@@ -72,6 +72,7 @@ public class ParteA {
 
             } while (dedosJugador1 < 0 || dedosJugador1 > 10);
 
+            //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
 
                 String texto4;
@@ -95,7 +96,7 @@ public class ParteA {
 
                 JOptionPane.showMessageDialog(null, "El ganador es....");
 
-                //Estrcutura if-else para saber quien ha ganado sabiendo que ha elegido (1-Par) 
+                //Estructura if-else para saber quien ha ganado sabiendo que ha elegido (1-Par) 
                 if (decisionJugador1 == 1) {
 
                     JOptionPane.showMessageDialog(null, "Jugador1");
