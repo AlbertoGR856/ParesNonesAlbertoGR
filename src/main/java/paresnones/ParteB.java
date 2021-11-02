@@ -79,7 +79,7 @@ public class ParteB {
             //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
 
-                //Se genera un numero aleatorio entre el 1 y el 10
+                //Se genera un numero aleatorio entre el 0 y el 10
                 dedosJugador2 = aleatorio.nextInt(11);
 
             } while (dedosJugador2 < 0 || dedosJugador2 > 10);
