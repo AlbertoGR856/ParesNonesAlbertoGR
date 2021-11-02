@@ -21,6 +21,8 @@ public class ParteB {
         int decisionJugador2;
         int dedosJugador1;
         int dedosJugador2;
+        
+        int sumaDedosJugadores;
 
         JOptionPane.showMessageDialog(null, "BIENVENIDO A PARES Y NONES");
         JOptionPane.showMessageDialog(null, "Seleccione Pares o Nones (1- Pares, 0- Nones)");
@@ -52,14 +54,14 @@ public class ParteB {
 
         } while (dedosJugador1 < 0 || dedosJugador1 > 10);
 
+        JOptionPane.showMessageDialog(null, "Se generara los dedos del jugador2(maquina)");
         do {
 
             dedosJugador2 = aleatorio.nextInt(10) + 1;
 
         } while (dedosJugador2 < 0 || dedosJugador2 > 10);
         
-        
-        
+        sumaDedosJugadores = dedosJugador1 + dedosJugador2;
 
     }
 
