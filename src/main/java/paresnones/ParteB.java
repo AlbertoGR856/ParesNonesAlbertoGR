@@ -19,6 +19,10 @@ public class ParteB {
         Scanner teclado = new Scanner(System.in);
         Random aleatorio = new Random();
 
+        //Constantes
+        final int NUMERO_DEDOS_MINIMO = 0;
+        final int NUMERO_DEDOS_MAXIMO = 10;
+
         //Variables introducidas por teclado
         int decisionJugador1;
         int dedosJugador1;
@@ -48,9 +52,16 @@ public class ParteB {
 
                 decisionJugador1 = teclado.nextInt();
 
+                if (decisionJugador1 < 0 || decisionJugador1 > 1) {
+
+                    System.out.println("Introduzca un rango valido, (1- Pares, 0- Nones)");
+
+                }
+
             } while (decisionJugador1 < 0 || decisionJugador1 > 1);
 
             System.out.println("Se generara la decision del jugador2(maquina)");
+            
 
             //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
@@ -61,6 +72,8 @@ public class ParteB {
                 //Se incluye en la condicion del while que la respues del jugador2 sea igual a la del jugador1. Ya que ambos no pueden elegir lo mismo, por lo tanto
                 //si es falso finalizara el bucle
             } while (decisionJugador2 < 0 || decisionJugador2 > 1 || decisionJugador2 == decisionJugador1);
+            
+            System.out.println("El jugador2(maquina) ha elegido: " + decisionJugador2);
 
             //SELECCIÓN DEDOS DE LOS JUGADORES
             System.out.println("Seleccione los dedos para ambos jugadores (Minimo 0 y maximo 10)");
@@ -72,7 +85,12 @@ public class ParteB {
 
                 dedosJugador1 = teclado.nextInt();
 
-            } while (dedosJugador1 < 0 || dedosJugador1 > 10);
+                if (dedosJugador1 < NUMERO_DEDOS_MINIMO || dedosJugador1 > NUMERO_DEDOS_MAXIMO) {
+
+                    System.out.println("Introduzca un rango valido, de 0 a 10");
+                }
+
+            } while (dedosJugador1 < NUMERO_DEDOS_MINIMO || dedosJugador1 > NUMERO_DEDOS_MAXIMO);
 
             System.out.println("Se generara los dedos del jugador2(maquina)");
 
@@ -82,11 +100,13 @@ public class ParteB {
                 //Se genera un numero aleatorio entre el 0 y el 10
                 dedosJugador2 = aleatorio.nextInt(11);
 
-            } while (dedosJugador2 < 0 || dedosJugador2 > 10);
+            } while (dedosJugador2 < NUMERO_DEDOS_MINIMO || dedosJugador2 > NUMERO_DEDOS_MAXIMO);
 
             //Se suman los dedos de los jugadores
             sumaDedosJugadores = dedosJugador1 + dedosJugador2;
 
+            System.out.println("Los dedos del jugador2(maquina) son: " + dedosJugador2);
+            
             //RESULTADO
             System.out.println("La suma de los dedos de ambos jugadores es de: " + sumaDedosJugadores);
 

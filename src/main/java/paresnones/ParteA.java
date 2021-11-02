@@ -14,6 +14,10 @@ public class ParteA {
 
     public static void main(String[] args) {
 
+        //Constantes
+        final int NUMERO_DEDOS_MINIMO = 0;
+        final int NUMERO_DEDOS_MAXIMO = 10;
+
         //Variables introducidas por JOptionPane
         int decisionJugador1;
         int decisionJugador2;
@@ -43,6 +47,10 @@ public class ParteA {
 
                 decisionJugador1 = Integer.parseInt(texto);
 
+                if (decisionJugador1 < 0 || decisionJugador1 > 1) {
+                    JOptionPane.showMessageDialog(null, "Introduzca un rango valido, (1- Pares, 0- Nones)");
+                }
+
             } while (decisionJugador1 < 0 || decisionJugador1 > 1);
 
             //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
@@ -53,6 +61,10 @@ public class ParteA {
                 texto2 = JOptionPane.showInputDialog("Introduzca la decision del jugador2:");
 
                 decisionJugador2 = Integer.parseInt(texto2);
+
+                if (decisionJugador2 < 0 || decisionJugador2 > 1 || decisionJugador2 == decisionJugador1) {
+                    JOptionPane.showMessageDialog(null, "Introduzca una opción distinta al del jugador1");
+                }
 
                 //Se incluye en la condicion del while que la respues del jugador2 sea igual a la del jugador1. Ya que ambos no pueden elegir lo mismo, por lo tanto
                 //si es falso finalizara el bucle
@@ -70,7 +82,12 @@ public class ParteA {
 
                 dedosJugador1 = Integer.parseInt(texto3);
 
-            } while (dedosJugador1 < 0 || dedosJugador1 > 10);
+                if (dedosJugador1 < NUMERO_DEDOS_MINIMO || dedosJugador1 > NUMERO_DEDOS_MAXIMO) {
+
+                    JOptionPane.showMessageDialog(null, "Introduza un rango valido, de 0 a 10");
+                }
+
+            } while (dedosJugador1 < NUMERO_DEDOS_MINIMO || dedosJugador1 > NUMERO_DEDOS_MAXIMO);
 
             //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
@@ -81,7 +98,12 @@ public class ParteA {
 
                 dedosJugador2 = Integer.parseInt(texto4);
 
-            } while (dedosJugador2 < 0 || dedosJugador2 > 10);
+                if (dedosJugador2 < NUMERO_DEDOS_MINIMO || dedosJugador2 > NUMERO_DEDOS_MAXIMO) {
+
+                    JOptionPane.showMessageDialog(null, "Introduza un rango valido, de 0 a 10");
+                }
+
+            } while (dedosJugador2 < NUMERO_DEDOS_MINIMO || dedosJugador2 > NUMERO_DEDOS_MAXIMO);
 
             //Se suman los dedos de los jugadores
             sumaDedosJugadores = dedosJugador1 + dedosJugador2;
