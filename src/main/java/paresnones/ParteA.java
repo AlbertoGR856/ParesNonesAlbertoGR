@@ -4,7 +4,7 @@
  */
 package paresnones;
 
-import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -14,8 +14,6 @@ import javax.swing.JOptionPane;
 public class ParteA {
 
     public static void main(String[] args) {
-
-        Scanner teclado = new Scanner(System.in);
 
         int decisionJugador1;
         int decisionJugador2;
@@ -48,7 +46,7 @@ public class ParteA {
 
                 decisionJugador2 = Integer.parseInt(texto2);
 
-            } while (decisionJugador2 < 0 || decisionJugador2 > 1);
+            } while (decisionJugador2 < 0 || decisionJugador2 > 1 || decisionJugador2 == decisionJugador1);
 
             JOptionPane.showMessageDialog(null, "Seleccione los dedos para ambos jugadores (Minimo 1 y maximo 10)");
 
@@ -66,7 +64,7 @@ public class ParteA {
 
                 String texto4;
 
-                texto4 = JOptionPane.showInputDialog("Introduzca los dedos del jugador1:");
+                texto4 = JOptionPane.showInputDialog("Introduzca los dedos del jugador2:");
 
                 dedosJugador2 = Integer.parseInt(texto4);
 
