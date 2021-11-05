@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 /*
 URL del repositorio remoto
 https://github.com/AlbertoGR856/ParesNonesAlbertoGR.git
-*/
+ */
 public class ParteA {
 
     public static void main(String[] args) {
@@ -23,13 +23,15 @@ public class ParteA {
         final int NUMERO_DEDOS_MAXIMO = 10;
 
         //Variables introducidas por JOptionPane
-        int decisionJugador1;
-        int decisionJugador2;
-        int dedosJugador1;
-        int dedosJugador2;
+        int decisionJugador1 = 0;
+        int decisionJugador2 = 0;
+        int dedosJugador1 = 0;
+        int dedosJugador2 = 0;
 
         //Variable booleana utilizada para repetir la ejecución del programa
         boolean repetir = true;
+
+        boolean seguir = true;
 
         //Variable que almacena la suma de los dedos de los jugadores
         int sumaDedosJugadores;
@@ -47,9 +49,23 @@ public class ParteA {
 
                 String texto;
 
-                texto = JOptionPane.showInputDialog("Introduzca la decision del jugador1:");
+                //Bucle con try-catch NumberFormatException
+                do {
 
-                decisionJugador1 = Integer.parseInt(texto);
+                    texto = JOptionPane.showInputDialog("Introduzca la decision del jugador1:");
+
+                    try {
+
+                        decisionJugador1 = Integer.parseInt(texto);
+
+                        seguir = false;
+
+                    } catch (NumberFormatException nfe) {
+
+                        JOptionPane.showMessageDialog(null, "El formato del número introducido no es correcto. Vuelva a introducir el numero");
+                    }
+
+                } while (seguir);
 
                 if (decisionJugador1 < 0 || decisionJugador1 > 1) {
                     JOptionPane.showMessageDialog(null, "Introduzca un rango valido, (1- Pares, 0- Nones)");
@@ -57,14 +73,32 @@ public class ParteA {
 
             } while (decisionJugador1 < 0 || decisionJugador1 > 1);
 
+            //Cambio la variable booleana seguir a true para que no se repita el proximo bucle dentro del try-catch
+            seguir = true;
+
             //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
 
                 String texto2;
 
-                texto2 = JOptionPane.showInputDialog("Introduzca la decision del jugador2:");
+                //Bucle con try-catch NumberFormatException
+                do {
 
-                decisionJugador2 = Integer.parseInt(texto2);
+                    texto2 = JOptionPane.showInputDialog("Introduzca la decision del jugador2:");
+
+                    try {
+
+                        decisionJugador2 = Integer.parseInt(texto2);
+
+                        seguir = false;
+
+                    } catch (NumberFormatException nfe) {
+
+                        JOptionPane.showMessageDialog(null, "El formato del número introducido no es correcto. Vuelva a introducir el numero");
+
+                    }
+
+                } while (seguir);
 
                 if (decisionJugador2 < 0 || decisionJugador2 > 1 || decisionJugador2 == decisionJugador1) {
                     JOptionPane.showMessageDialog(null, "Introduzca una opción distinta al del jugador1");
@@ -74,6 +108,9 @@ public class ParteA {
                 //si es falso finalizara el bucle
             } while (decisionJugador2 < 0 || decisionJugador2 > 1 || decisionJugador2 == decisionJugador1);
 
+            //Actualizao la variable booleana para que no se repita el bucle
+            seguir = true;
+
             //SELECCIÓN DEDOS DE LOS JUGADORES
             JOptionPane.showMessageDialog(null, "Seleccione los dedos para ambos jugadores (Minimo 0 y maximo 10)");
 
@@ -82,9 +119,23 @@ public class ParteA {
 
                 String texto3;
 
-                texto3 = JOptionPane.showInputDialog("Introduzca los dedos del jugador1:");
+                //Bucle con try-catch
+                do {
+                    texto3 = JOptionPane.showInputDialog("Introduzca los dedos del jugador1:");
 
-                dedosJugador1 = Integer.parseInt(texto3);
+                    try {
+
+                        dedosJugador1 = Integer.parseInt(texto3);
+                        
+                         seguir = false;
+
+                    } catch (NumberFormatException nfe) {
+
+                        JOptionPane.showMessageDialog(null, "El formato del número introducido no es correcto. Vuelva a introducir el numero");
+
+                    }
+
+                } while (seguir);
 
                 if (dedosJugador1 < NUMERO_DEDOS_MINIMO || dedosJugador1 > NUMERO_DEDOS_MAXIMO) {
 
@@ -93,15 +144,33 @@ public class ParteA {
 
             } while (dedosJugador1 < NUMERO_DEDOS_MINIMO || dedosJugador1 > NUMERO_DEDOS_MAXIMO);
 
+            //Actualizacion 
+            seguir = true;
+            
             //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
 
                 String texto4;
 
+                //Bucle con try-catch
+                do{
+                        
                 texto4 = JOptionPane.showInputDialog("Introduzca los dedos del jugador2:");
 
+                try{
+                    
+                
                 dedosJugador2 = Integer.parseInt(texto4);
+                
+                 seguir = false;
 
+                }catch(NumberFormatException nfe){
+                    
+                      JOptionPane.showMessageDialog(null, "El formato del número introducido no es correcto. Vuelva a introducir el numero");
+                }
+                
+                }while(seguir);
+                
                 if (dedosJugador2 < NUMERO_DEDOS_MINIMO || dedosJugador2 > NUMERO_DEDOS_MAXIMO) {
 
                     JOptionPane.showMessageDialog(null, "Introduza un rango valido, de 0 a 10");
