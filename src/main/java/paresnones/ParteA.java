@@ -30,7 +30,6 @@ public class ParteA {
 
         //Variable booleana utilizada para repetir la ejecución del programa
         boolean repetir = true;
-
         boolean seguir = true;
 
         //Variable que almacena la suma de los dedos de los jugadores
@@ -108,7 +107,7 @@ public class ParteA {
                 //si es falso finalizara el bucle
             } while (decisionJugador2 < 0 || decisionJugador2 > 1 || decisionJugador2 == decisionJugador1);
 
-            //Actualizao la variable booleana para que no se repita el bucle
+            //Actualización la variable booleana para que no se repita el bucle
             seguir = true;
 
             //SELECCIÓN DEDOS DE LOS JUGADORES

@@ -58,7 +58,7 @@ public class ParteB {
             //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
 
-                //Bucle try-catch
+                //Bucle try-catch InputMismatchException 
                 do {
 
                     try {
@@ -110,7 +110,7 @@ public class ParteB {
             //Bucle do-while para repetir la entrada de datos si no esta en el rango establecido
             do {
 
-                //Bucle try-catch
+                //Bucle try-catch InputMismatchException 
                 do {
 
                     try {
